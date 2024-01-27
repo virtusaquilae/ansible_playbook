@@ -1,0 +1,11 @@
+---
+- name: Sync Files to Servers
+  hosts: VM # virtual machine that will be synced
+  become: true # this is for commands that needs sudo
+
+  tasks:
+    - name: Synchronize files
+      synchronize:
+        src: /source/directory  # source of the directory
+        dest: /destination/directory  # destination of the directory
+        recursive: yes # this is for recursive copy
